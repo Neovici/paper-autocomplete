@@ -618,6 +618,12 @@ Polymer({
    * @param {Object} option
    */
 	setOption(option) {
+		if (option == null) {
+			this.text = '';
+			this.value = '';
+			this._hideClearButton();
+			return;
+		}
 		this.text = option[this.textProperty] || option.text;
 		this.value = this._value = option[this.valueProperty] || option.value;
 		this._showClearButton();
